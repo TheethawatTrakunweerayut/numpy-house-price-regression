@@ -81,8 +81,9 @@ def subset_xy(X, y, indices):
 def ols_fit(X, y):
     return np.linalg.inv(X.T @ X) @ X.T @ y
 
-# Step 14 - ols_predict (not yet solved)
-# TODO: implement
+# Step 14 - ols_predict
+def ols_predict(X, theta):
+    return np.dot(X, theta)
 
 # Step 15 - mean_absolute_error (not yet solved)
 # TODO: implement
