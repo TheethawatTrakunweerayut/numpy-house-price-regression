@@ -85,8 +85,9 @@ def ols_fit(X, y):
 def ols_predict(X, theta):
     return np.dot(X, theta)
 
-# Step 15 - mean_absolute_error (not yet solved)
-# TODO: implement
+# Step 15 - mean_absolute_error
+def mean_absolute_error(y_true, y_pred):
+    return np.abs(y_true - y_pred).mean()
 
 # Step 16 - root_mean_squared_error (not yet solved)
 # TODO: implement
