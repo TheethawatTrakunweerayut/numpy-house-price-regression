@@ -138,8 +138,6 @@ def prepare_cleaned_features(X, iqr_k=1.5):
     return clip_columns(X, lower_X, upper_X)
 
 # Step 20 - assemble_feature_matrix
-import numpy as np
-
 def assemble_feature_matrix(X_num, ratio_num_idx, ratio_den_idx, cat_labels=None):
     ratio_col = make_ratio_feature(X_num[:, ratio_num_idx], X_num[:, ratio_den_idx])
     ret = append_column(X_num, ratio_col)
