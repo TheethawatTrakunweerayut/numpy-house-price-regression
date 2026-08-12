@@ -19,8 +19,11 @@ def impute_nan_with_mean(X):
     mean_v = np.nan_to_num(np.nanmean(X, axis=0), 0.0)
     return np.where(np.isnan(X), mean_v, X)
 
-# Step 2 - compute_iqr_bounds (not yet solved)
-# TODO: implement
+# Step 2 - compute_iqr_bounds
+def compute_iqr_bounds(X, k=1.5):
+    q1, q3 = np.quantile(X, [0.25, 0.75], axis=0)
+    iqr = k * (q3 - q1)
+    return (q1 - iqr, q3 + iqr)
 
 # Step 3 - clip_columns (not yet solved)
 # TODO: implement
