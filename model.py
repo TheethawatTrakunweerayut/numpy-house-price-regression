@@ -153,7 +153,6 @@ def make_train_val_test(X, y, train_ratio, val_ratio, seed):
     n_samples = X.shape[0]
     idx = make_shuffled_indices(n_samples, seed)
     train_idx, val_idx, test_idx = partition_indices(idx, train_ratio, val_ratio)
-    print(train_idx)
 
     x_train, y_train = subset_xy(X, y, train_idx)
     x_val, y_val = subset_xy(X, y, val_idx)
