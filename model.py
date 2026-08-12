@@ -109,8 +109,15 @@ def r_squared(y_true, y_pred):
     if (ss_tot == 0): return 0
     return 1 - (ss_res / ss_tot)
 
-# Step 18 - residual_summary (not yet solved)
-# TODO: implement
+# Step 18 - residual_summary
+def residual_summary(y_true, y_pred):
+    r = y_true - y_pred
+    return \
+    {
+        "mean" : r.mean(),
+        "std" : r.std(),
+        "median_abs" : np.median(np.abs(r))
+    }
 
 # Step 19 - prepare_cleaned_features (not yet solved)
 # TODO: implement
