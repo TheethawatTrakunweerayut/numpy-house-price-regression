@@ -48,8 +48,9 @@ def fit_standardizer(X):
     std_v = X.std(axis=0)
     return X.mean(axis=0), np.where(std_v==0, 1.0, std_v)
 
-# Step 8 - apply_standardizer (not yet solved)
-# TODO: implement
+# Step 8 - apply_standardizer
+def apply_standardizer(X, mean, std):
+    return (X - mean) / std
 
 # Step 9 - add_bias_column (not yet solved)
 # TODO: implement
