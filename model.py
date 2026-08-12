@@ -35,7 +35,8 @@ def make_ratio_feature(numerator, denominator, eps=1e-8):
 
 # Step 5 - append_column
 def append_column(X, col):
-    return np.hstack([X, col[:, None]])
+    col = col.reshape(X.shape[0], -1)
+    return np.hstack([X, col])
 
 # Step 6 - one_hot_encode
 def one_hot_encode(labels):
@@ -134,8 +135,17 @@ def prepare_cleaned_features(X, iqr_k=1.5):
     lower_X, upper_X = compute_iqr_bounds(X, iqr_k)
     return clip_columns(X, lower_X, upper_X)
 
-# Step 20 - assemble_feature_matrix (not yet solved)
-# TODO: implement
+# Step 20 - assemble_feature_matrix
+import numpy as np
+
+def assemble_feature_matrix(X_num, ratio_num_idx, ratio_den_idx, cat_labels=None):
+    ratio_col = make_ratio_feature(X_num[:, ratio_num_idx], X_num[:, ratio_den_idx])
+    ret = append_column(X_num, ratio_col)
+    if (cat_labels is not None):
+        one_hot = one_hot_encode(cat_labels)
+        ret = append_column(ret, one_hot)
+
+    return ret
 
 # Step 21 - make_train_val_test (not yet solved)
 # TODO: implement
