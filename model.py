@@ -43,8 +43,10 @@ def one_hot_encode(labels):
     one_hot = np.eye(unique.shape[0])
     return one_hot[idx]
 
-# Step 7 - fit_standardizer (not yet solved)
-# TODO: implement
+# Step 7 - fit_standardizer
+def fit_standardizer(X):
+    std_v = X.std(axis=0)
+    return X.mean(axis=0), np.where(std_v==0, 1.0, std_v)
 
 # Step 8 - apply_standardizer (not yet solved)
 # TODO: implement
