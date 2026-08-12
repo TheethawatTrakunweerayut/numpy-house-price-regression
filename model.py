@@ -37,8 +37,11 @@ def make_ratio_feature(numerator, denominator, eps=1e-8):
 def append_column(X, col):
     return np.hstack([X, col[:, None]])
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+def one_hot_encode(labels):
+    unique, idx = np.unique(labels, return_inverse=True)
+    one_hot = np.eye(unique.shape[0])
+    return one_hot[idx]
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
