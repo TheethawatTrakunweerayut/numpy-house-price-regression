@@ -214,9 +214,9 @@ def house_price_pipeline(X, y, ratio_num_idx, ratio_den_idx, cat_labels=None, tr
     y_val_pred = ols_predict(std_splits["X_val"], w)
     y_test_pred = ols_predict(std_splits["X_test"], w)
 
-    train_metrics = evaluate_prediction(std_splits["y_train"], y_train_pred)
-    val_metrics = evaluate_prediction(std_splits["y_val"], y_val_pred)
-    test_metrics = evaluate_prediction(std_splits["y_test"], y_test_pred)
+    train_metrics = evaluate_predictions(std_splits["y_train"], y_train_pred)
+    val_metrics = evaluate_predictions(std_splits["y_val"], y_val_pred)
+    test_metrics = evaluate_predictions(std_splits["y_test"], y_test_pred)
 
     return \
     {
